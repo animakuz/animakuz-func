@@ -1,8 +1,8 @@
 //check if variable is function
 //Source - Alex Grande - StackOverflow  - Answer 09/09/11
-function isFunction(functionToCheck) {
+function isFunction(objToCheck) {
   var getType = {};
-  return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+  return objToCheck && getType.toString.call(objToCheck) === '[object Function]';
 }
 
 //get random integer between a specific range
@@ -43,7 +43,7 @@ function compArrs(arrA, arrB) {
 }
 
 //check if array A is a sub array of B
-function compSubArrs(arrA, arrB) {
+function compSubArr(arrA, arrB) {
   var str = arrB.join('-');
   var len = arrA.length;
   var flag = true;
