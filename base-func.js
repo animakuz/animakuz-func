@@ -21,14 +21,13 @@ function floorTrunc(num, numDecimals) {
 
 //compare two arrays A and B - return true if they are equal in items and length
 function compArrs(arrA, arrB) {
-  var flag = true;
   var lenA = arrA.length;
   var lenB = arrB.length;
+  var ind  = lenB;
 
   if (lenA !== lenB) {
     return false;
   } else {      
-    var ind = Math.min(lenA, lenB);
     arrA = arrA.sort();
     arrB = arrB.sort();
 
@@ -39,7 +38,7 @@ function compArrs(arrA, arrB) {
     }
   }
     
-  return flag;
+  return true;
 }
 
 //check if array A is a sub array of B
