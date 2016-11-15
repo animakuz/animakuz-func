@@ -21,14 +21,13 @@ function floorTrunc(num, numDecimals) {
 
 //compare two arrays A and B - return true if they are equal in items and length
 function compArrs(arrA, arrB) {
-  var flag = true;
   var lenA = arrA.length;
   var lenB = arrB.length;
+  var ind  = lenB;
 
   if (lenA !== lenB) {
     return false;
   } else {      
-    var ind = Math.min(lenA, lenB);
     arrA = arrA.sort();
     arrB = arrB.sort();
 
@@ -39,25 +38,32 @@ function compArrs(arrA, arrB) {
     }
   }
     
-  return flag;
+  return true;
 }
 
 //check if array A is a sub array of B
-function compSubArr(arrA, arrB) {
-  var str = arrB.join('-');
-  var len = arrA.length;
-  var flag = true;
+//**--this function doesn't make sense.
+//Need to introduce testing with jasmine to show that this doesn't
+//work for certain object types (like functions) Also it doesn't
+//look like it checks for a value that is checked against two
+//similar values in the sub or containing array
+//**-- PLEASE FIX **--
+
+function compSubArr(arrSub, arrCont) {
+  var arrContComp = arrCont.join('-');
+  var len = arrSub.length;
+  var isSub = true;
 
   while(len--) {
-    var testExp = new RegExp(arrA[len]);
+    var testExp = new RegExp(arrSub[len]);
       
-    if (!testExp.test(str)) {
-      flag = false;
+    if (!testExp.test(arrContComp)) {
+      isSub = false;
       break;
     }
   }
 
-  return flag;
+  return isSub;
 }
 
 
