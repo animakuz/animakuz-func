@@ -2,13 +2,33 @@
 <html>
 <head>
 <title> Test </title>
+<style>
+  .red {
+    color: red;
+  } 
+
+  .big {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .hi-lite {
+    background-color: yellow;
+  }
+
+  .border {
+    border: 2px solid blue;
+  } 
+</style>
 </head>
 
 <body>
-
-
+  <p id="text0"><span>If this text shows then empty failed</span></p>
+  <p id="text1" class="red">This text should be red</p>
+  <p id="text2" class="red">This text should NOT be red</p>
+  <p id="text3" class="red">This text should red and BIG</p>
+  <p id="text4" class="">This text should be BIG, red and highlighted</p>
 </body>
 <script src="base-func.js"></script>
-
 
 </html>
