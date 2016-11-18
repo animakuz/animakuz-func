@@ -1,8 +1,9 @@
-//check if variable is function
-//Source - Alex Grande - StackOverflow  - Answer 09/09/11
+
 var baseFunc = {
 
   isFunction: function(objToCheck) {
+    //check if variable is function
+    //Source - Alex Grande - StackOverflow  - Answer 09/09/11
     var getType = {};
     return objToCheck && getType.toString.call(objToCheck) === '[object Function]';
   },
@@ -39,7 +40,7 @@ var baseFunc = {
         }
       }
     }
-    
+
     return true;
   },  
  
