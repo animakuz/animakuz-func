@@ -89,7 +89,7 @@ var baseFunc = {
   addClass: function(element, classesToAdd) {
     //add a class or multiple classes to an element
     var newClassName = element.className.trim().replace(/\s+/g,' ') + ' ';
-    var newClasses   = classesToAdd.replace(/\s+/g,'').split(",");		
+    var newClasses   = classesToAdd.split(/\s+/);		
     var len          = newClasses.length;
     var ind          = 0;
 
@@ -110,7 +110,7 @@ var baseFunc = {
   removeClass: function(element, classesToRemove) { 
     //remove a class or multiple classes from an element
     var newClass = element.className.trim().replace(/\s+/g,' ') + ' ';
-    var classes  = classesToRemove.replace(/\s+/g,'').split(",");
+    var classes  = classesToRemove.split(/\s+/);
     var ind      = classes.length;
      
     while(ind--) { 
@@ -125,7 +125,7 @@ var baseFunc = {
   toggleClass: function(element, classesToToggle) {
     //toggle class or multiple classes on and off 
     var newClassName = element.className.trim().replace(/\s+/g,' ') + ' ';
-    var classes      = classesToToggle.replace(/\s+/g,'').split(",")
+    var classes      = classesToToggle.split(/\s+/);
     var len          = classes.length;
     var ind          = 0;
   
@@ -137,7 +137,7 @@ var baseFunc = {
         newClassName = newClassName.replace(classes[ind] + ' ', '');
       } else {
         //class doesn't exist - add it
-        newClassName += classes[ind] + ' ';
+        newClassName += ' ' + classes[ind];
       }
 
       ind++;
@@ -206,7 +206,7 @@ baseFunc.removeClass(text2, "red");
 baseFunc.addClass(text3, "big");
 
 //toggleClass
-baseFunc.toggleClass(text4, "red big hi-lite");
+baseFunc.toggleClass(text4, "red   big   hi-lite");
 
 //modifyMultiple
 baseFunc.modifyMultiple([text1, text2, text3, text4], function(element) { baseFunc.addClass(element,"border"); });
