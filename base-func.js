@@ -45,16 +45,27 @@ var baseFunc = {
   },  
  
   compSubArr: function(arrSub, arrCont) {
-    //check if array A is a sub array of B
-    //**--this function doesn't make sense.
-    //Need to introduce testing with jasmine to show that this doesn't
-    //work for certain object types (like functions) Also it doesn't
-    //look like it checks for a value that is checked against two
-    //similar values in the sub or containing array
-    //**-- PLEASE FIX **--
-
+    //Check if arrSub is a sub array of arrCont (all the items
+    //in arrSub are contained in arrCont)
     var lenSub  = arrSub.length;
     var lenCont = arrCont.length;
+    var indSub;
+    var tempInd;
+
+    if (lenSub > lenCont) {
+      return false;
+    } else {
+      indSub = lenSub;
+      
+      while (indSub--) {
+        tempInd = arrCont.indexOf(arrSub[indSub]);
+        if (tempInd == -1) {
+          return false;
+        } else { 
+          arrCont.splice(tempInd, 1);
+        }   
+      }
+    }
 
     return true;
   },
@@ -192,7 +203,9 @@ console.log("1.2345 truncted to floor with 2 decimal places: " + baseFunc.floorT
 console.log("Check if array [1,2,3] = ['a','b','c'] : " + baseFunc.compArrs([1,2,3],["a","b","c"]));
 
 //compSubArrs
-//console.log(baseFunc.compSubArrs([1,2,3],[1,2,3,4,5]));
+console.log("Check if array [1,2,3] is a sub array of [5,2,1,3,4]: " + baseFunc.compSubArr([1,2,3],[5,2,1,3,4]));
+console.log("Check if array [1,2,9] is a sub array of [5,2,1,3,4]: " + baseFunc.compSubArr([1,2,9],[5,2,1,3,4]));
+console.log("Check if array [1,3,3] is a sub array of [5,2,1,3,4]: " + baseFunc.compSubArr([1,3,3],[5,2,1,3,4]));
 
 //empty
 baseFunc.empty(text0);
